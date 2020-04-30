@@ -20,7 +20,8 @@
     "js-md5": "^0.7.3",
     "lowdb": "^1.0.0",
     "morgan": "~1.9.1",
-    "nodemon": "^2.0.2"
+    "nodemon": "^2.0.2",
+    "sqlite3": "^4.2.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0"
