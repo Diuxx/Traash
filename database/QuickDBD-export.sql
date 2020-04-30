@@ -6,18 +6,19 @@
 -- To reset the sample schema, replace everything with
 -- two dots ('..' - without quotes).
 
-CREATE TABLE `Trash` (
-    `TrashID` string  NOT NULL ,
+CREATE TABLE `Traash` (
+    `TraashID` string  NOT NULL ,
     `Name` string  NOT NULL ,
     `ParsedName` string  NOT NULL ,
-    `LanguageID` string  NOT NULL ,
     `link` string  NOT NULL ,
-    `UserID` string  NOT NULL ,
     `Description` string  NULL ,
+    `UserID` string  NOT NULL ,
+    `childID` string  NOT NULL ,
+    `private` boolean  NOT NULL ,
     `CreatedAt` date  NOT NULL ,
     `UpdatedAt` date  NOT NULL ,
     PRIMARY KEY (
-        `TrashID`
+        `TraashID`
     )
 );
 
@@ -40,7 +41,7 @@ CREATE TABLE `User` (
 CREATE TABLE `Comment` (
     `CommentID` string  NOT NULL ,
     `UserID` string  NOT NULL ,
-    `TrashID` string  NOT NULL ,
+    `TraashID` string  NOT NULL ,
     `Line` int  NOT NULL ,
     `text` string  NULL ,
     `CreatedAt` date  NOT NULL ,
@@ -50,15 +51,23 @@ CREATE TABLE `Comment` (
     )
 );
 
-ALTER TABLE `Trash` ADD CONSTRAINT `fk_Trash_LanguageID` FOREIGN KEY(`LanguageID`)
-REFERENCES `Language` (`LanguageID`);
+CREATE TABLE `TraashLanguAssoc` (
+    `TrashID` string  NOT NULL ,
+    `LanguageID` string  NOT NULL 
+);
 
-ALTER TABLE `Trash` ADD CONSTRAINT `fk_Trash_UserID` FOREIGN KEY(`UserID`)
+ALTER TABLE `Traash` ADD CONSTRAINT `fk_Traash_UserID` FOREIGN KEY(`UserID`)
 REFERENCES `User` (`UserID`);
 
 ALTER TABLE `Comment` ADD CONSTRAINT `fk_Comment_UserID` FOREIGN KEY(`UserID`)
 REFERENCES `User` (`UserID`);
 
-ALTER TABLE `Comment` ADD CONSTRAINT `fk_Comment_TrashID` FOREIGN KEY(`TrashID`)
-REFERENCES `Trash` (`TrashID`);
+ALTER TABLE `Comment` ADD CONSTRAINT `fk_Comment_TraashID` FOREIGN KEY(`TraashID`)
+REFERENCES `Traash` (`TraashID`);
+
+ALTER TABLE `TraashLanguAssoc` ADD CONSTRAINT `fk_TraashLanguAssoc_TrashID` FOREIGN KEY(`TrashID`)
+REFERENCES `Traash` (`TraashID`);
+
+ALTER TABLE `TraashLanguAssoc` ADD CONSTRAINT `fk_TraashLanguAssoc_LanguageID` FOREIGN KEY(`LanguageID`)
+REFERENCES `Language` (`LanguageID`);
 
