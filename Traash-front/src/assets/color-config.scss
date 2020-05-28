@@ -1,0 +1,21 @@
+
+/* #region General */
+$white: #fff;
+$black: #000;
+$yellow: #F1C40F;
+$red: #E74C3C;
+
+
+$app_color: #34495E;
+$app_color_light: #ccb89b;
+$app_color_light_grey: #E8E8E8;
+/* #endregion */
+
+/* #region Header */
+$multicolor1: #f5c37d;
+/* #endregion */
+
+.app-color {
+    background: $app_color;
+    color: $white !important;
+}

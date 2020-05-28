@@ -1,0 +1,41 @@
+@import '../../../assets/global-config.scss';
+
+.app {
+    color: white !important;
+}
+
+.tr-nav {
+
+}
+
+.align-left {
+    align-content: flex-start;
+    justify-content: space-between;
+}
+
+.log-info {
+
+}
+
+.flex-basic {
+    display: flex;
+    align-content: flex-start;
+    justify-content: flex-start;
+}
+
+nav {
+    margin: 0px;
+    padding: 0px;
+}
+
+/* menu part */
+.header-menu {
+    display: flex;
+    .btn-group {
+        margin: 0 10px 0 10px;
+        :hover {
+            color: $red;
+            cursor: pointer;
+        }
+    }
+}

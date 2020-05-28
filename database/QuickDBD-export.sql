@@ -56,6 +56,24 @@ CREATE TABLE `TraashLanguAssoc` (
     `LanguageID` string  NOT NULL 
 );
 
+CREATE TABLE `Keyswords` (
+    `KeywordID` int  NOT NULL ,
+    `Word` string  NOT NULL ,
+    `IDF` float  NOT NULL ,
+    PRIMARY KEY (
+        `KeywordID`
+    )
+);
+
+CREATE TABLE `KeysWordsDocuments` (
+    `KeywordID` int  NOT NULL ,
+    `TraashID` int  NOT NULL ,
+    `TF` float  NOT NULL ,
+    PRIMARY KEY (
+        `KeywordID`,`TraashID`
+    )
+);
+
 ALTER TABLE `Traash` ADD CONSTRAINT `fk_Traash_UserID` FOREIGN KEY(`UserID`)
 REFERENCES `User` (`UserID`);
 
@@ -70,4 +88,13 @@ REFERENCES `Traash` (`TraashID`);
 
 ALTER TABLE `TraashLanguAssoc` ADD CONSTRAINT `fk_TraashLanguAssoc_LanguageID` FOREIGN KEY(`LanguageID`)
 REFERENCES `Language` (`LanguageID`);
+
+ALTER TABLE `KeysWordsDocuments` ADD CONSTRAINT `fk_KeysWordsDocuments_KeywordID` FOREIGN KEY(`KeywordID`)
+REFERENCES `Keyswords` (`KeywordID`);
+
+ALTER TABLE `KeysWordsDocuments` ADD CONSTRAINT `fk_KeysWordsDocuments_TraashID` FOREIGN KEY(`TraashID`)
+REFERENCES `Traash` (`TraashID`);
+
+CREATE INDEX `idx_Keyswords_Word`
+ON `Keyswords` (`Word`);
 

@@ -1,0 +1,47 @@
+<nav class="navbar navbar-light app-color align-left">
+    <div class="navbar-brand app">
+        <img src="../../../assets/images/logo.svg" width="30" height="30" class="d-inline-block align-top" alt="Traash code developers website..">
+        Traash
+    </div>
+
+    <div class="header-menu">
+        <div class="btn-group" dropdown>
+            <div id="file-dropdown clickable" dropdownToggle>FILE</div>
+            <ul id="file-dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="file-dropdown">
+                <li role="menuitem"><a class="dropdown-item" href="#">New</a></li>
+                <li role="menuitem"><a class="dropdown-item" href="#">Rename</a></li>
+                <li role="menuitem"><a class="dropdown-item" href="#">Collaborate</a></li>
+            </ul>
+        </div>
+    
+        <div class="btn-group" dropdown>
+            <div id="file-dropdown clickable" dropdownToggle>IMPORT</div>
+            <ul id="file-dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="file-dropdown">
+                <li role="menuitem">
+                    <a class="dropdown-item" href="#">Trash file</a><i class="fa fa-address-book"></i>
+                </li>
+            </ul>
+        </div>
+    
+        <div class="btn-group" dropdown>
+            <div id="file-dropdown clickable" dropdownToggle>EXPORT</div>
+            <ul id="file-dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="file-dropdown">
+                <li role="menuitem"><a class="dropdown-item" href="#">Only a trash</a></li>
+                <li role="menuitem"><a class="dropdown-item" href="#">The entir trash project</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="log-info export">
+        <div class="btn-group" style="margin-right: 20px;padding-right: 20px;border-right: 1px solid black;" dropdown>
+            <div id="button-dropdown-basic" class="fa fa-user" dropdownToggle>nicolasmarmot@gmail.com </div>
+            <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-dropdown-basic">
+                <li role="menuitem"><a class="dropdown-item" href="#">Logout</a></li>
+            </ul>
+        </div>
+        <div class="btn-group" style="margin-right: 20px;" dropdown>
+            <i id="button-dropdown-basic" class="fa fa-user" dropdownToggle>Share</i>
+        </div>
+    </div>
+</nav>
